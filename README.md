@@ -1,2 +1,2 @@
 # cousera-angularjs
-Exercises and assignments of the course Single Page Web Applications with AngularJS from Coursera
+Exercises and assignments of the course [Single Page Web Applications with AngularJS](https://www.coursera.org/learn/single-page-web-apps-with-angularjs) from [Coursera](https://www.coursera.org).
