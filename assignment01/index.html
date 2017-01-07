@@ -15,23 +15,37 @@
     <![endif]-->
 </head>
 
-<body ng-app="LunchChecker">
+<body ng-app="LunchCheck">
 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-6 col-xs-offset-3" ng-controller="LunchCheckerController">
-				<h1>Lunch Checker</h1>
+			<div class="col-xs-12 col-md-6 col-md-offset-3" ng-controller="LunchCheckController">
+				<h1 class="text-center">Lunch Checker</h1>
 				<hr>
 
-				<div class="alert" role="alert">Messages</div>
-
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="List comma separated dishes you usually have for lunch">
+				<div class="alert {{message.class}}" role="alert" ng-show="message.message">
+					{{message.message}}
 				</div>
 
-				<div>
-					<button type="button" class="btn btn-primary">Check If It Too Much</button>
-				</div>
+				<form ng-submit="checkLunch()">
+					<div class="form-group">
+						<input type="text"
+							class="form-control input-lg"
+							placeholder="List comma separated dishes you usually have for lunch"
+							ng-model="dishes">
+						
+						<small class="text-muted pull-right" style="padding-bottom: 1em;">
+							*Empty items are not considered.
+						</small>
+					</div>
+
+					<div class="col-xs-12 text-center">
+						<button type="submit" class="btn btn-lg btn-primary">
+							Check If It Too Much
+						</button>
+					</div>
+				</form>
+
 			</div>
 		</div>
 	</div>
