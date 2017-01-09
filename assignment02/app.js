@@ -37,6 +37,14 @@
 			{
 				name: 'Candies',
 				quantity: 8
+			},
+			{
+				name: 'Pizzas',
+				quantity: 5
+			},
+			{
+				name: 'Hamburgers',
+				quantity: 6
 			}
 		];
 		var bought = [];
