@@ -1,0 +1,18 @@
+<div class="alert alert-danger" role="alert" ng-if="foundItemsCtrl.items.length == 0">
+	Nothing Found
+</div>
+
+<div class="panel panel-primary" ng-repeat="item in foundItemsCtrl.items">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			{{item.short_name}} - {{item.name}}
+		</h3>
+	</div>
+
+	<div class="panel-body">
+		<p>{{item.description}}</p>
+		<button class="btn btn-sm btn-warning" ng-click="foundItemsCtrl.onRemove({index: $index})">
+			Don't Want This One
+		</button>
+	</div>
+</div>
