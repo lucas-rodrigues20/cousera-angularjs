@@ -16,20 +16,41 @@
     <![endif]-->
 </head>
 
-<body>
+<body ng-app="MenuApp">
 
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-md-6 col-md-offset-3">
+			<div class="col-xs-12 col-md-8 col-md-offset-2">
 
 				<h1 class="text-center">Menu App</h1>
 				<hr>
+
+				<ui-view></ui-view>
 
 			</div>
 		</div>
 	</div>
 
+	<!-- Libraries -->
 	<script src="lib/angular.min.js"></script>
 	<script src="lib/angular-ui-router.min.js"></script>
+
+	<!-- Modules -->
+	<script src="src/menuApp/menuapp.module.js"></script>
+	<script src="src/data/data.module.js"></script>
+
+	<!-- Routes -->
+	<script src="src/routes.js"></script>
+
+	<!-- Controllers -->
+	<script src="src/menuApp/categories.controller.js"></script>
+	<script src="src/menuApp/categoryItems.controller.js"></script>
+
+	<!-- Components -->
+	<script src="src/menuApp/categories.component.js"></script>
+	<script src="src/menuApp/items.component.js"></script>
+
+	<!-- Services -->
+	<script src="src/data/menudata.service.js"></script>
 </body>
 </html>

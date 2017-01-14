@@ -1,0 +1,12 @@
+<div class="panel panel-primary" ng-repeat="item in $ctrl.items">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			{{item.short_name}} - {{item.name}}
+		</h3>
+	</div>
+
+	<div class="panel-body">
+		<p ng-show="item.description">{{item.description}}</p>
+		<p ng-hide="item.description">None description</p>
+	</div>
+</div>
