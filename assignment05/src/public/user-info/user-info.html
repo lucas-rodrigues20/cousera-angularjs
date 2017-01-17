@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="col-xs-12 col-md-4 col-md-offset-4">
+		
+		<h1 class="text-center">My Info</h1>
+
+		<div class="alert alert-warning" role="alert" ng-if="!userInfoCtrl.userInfo">
+			Not Signed Up Yet! <a ui-sref="public.signup">Sign Up Now!</a>
+		</div>
+		
+		<dl class="dl-horizontal" ng-if="userInfoCtrl.userInfo">
+			<dt>First Name</dt>
+			<dd>{{userInfoCtrl.userInfo.firstName}}</dd>
+
+			<dt>Last Name</dt>
+			<dd>{{userInfoCtrl.userInfo.lastName}}</dd>
+
+			<dt>Email</dt>
+			<dd>{{userInfoCtrl.userInfo.email}}</dd>
+
+			<dt>Phone</dt>
+			<dd>{{userInfoCtrl.userInfo.phone}}</dd>
+
+			<dt>Favourite</dt>
+			<dd>
+				<strong>{{userInfoCtrl.userInfo.favorite.name}}</strong>
+				<br>
+				<img class="img-responsive img-thumbnail" width="250" height="150" 
+					ng-src="{{userInfoCtrl.basePath}}/images/{{userInfoCtrl.userInfo.favorite.short_name}}.jpg"
+					alt="{{userInfoCtrl.userInfo.favorite.name}}">
+				<br>
+				{{userInfoCtrl.userInfo.favorite.description}}
+			</dd>
+		</dl>
+
+	</div>
+</div>

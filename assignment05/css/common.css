@@ -18,3 +18,15 @@
 .ui-view-placeholder {
     margin-top: 60px;
 }
+
+.ng-touched.ng-valid {
+    border: 2px green solid;
+}
+
+.ng-touched.ng-invalid {
+    border: 2px red solid;
+}
+
+.error-txt {
+    color: red;
+}

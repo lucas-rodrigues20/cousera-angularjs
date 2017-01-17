@@ -1,0 +1,104 @@
+<div class="container">
+	<div class="col-xs-12 col-md-6 col-md-offset-3">
+
+		<h1 class="text-center">Sign Up</h1>
+
+		<div class="alert alert-success" role="alert" ng-if="signUpCtrl.clientInfoSaved">
+			Your Information Has Been Saved!
+		</div>
+
+		<form name="signUpCtrl.signUpForm" ng-submit="signUpCtrl.signUp()" novalidate>
+
+			<div class="form-group">
+				<label for="first-name">First Name:</label>
+				<input type="text"
+					id="first-name"
+					name="firstName"
+					class="form-control"
+					placeholder="Your First Name" 
+					ng-model="signUpCtrl.clientInfo.firstName"
+					required>
+
+					<small class="text-muted pull-right error-txt"
+						ng-if="signUpCtrl.signUpForm.firstName.$error.required && signUpCtrl.signUpForm.firstName.$touched">
+						First Name Must Be Informed
+					</small>
+			</div>
+
+			<div class="form-group">
+				<label for="last-name">Last Name:</label>
+				<input type="text"
+					id="last-name"
+					name="lastName"
+					class="form-control"
+					placeholder="Your Last Name" 
+					ng-model="signUpCtrl.clientInfo.lastName"
+					required>
+
+					<small class="text-muted pull-right error-txt"
+						ng-if="signUpCtrl.signUpForm.lastName.$error.required && signUpCtrl.signUpForm.lastName.$touched">
+						Last Name Must Be Informed
+					</small>
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="email"
+					id="email"
+					name="mail"
+					class="form-control"
+					placeholder="Your Mail Address" 
+					ng-model="signUpCtrl.clientInfo.email"
+					required>
+
+					<small class="text-muted pull-right error-txt"
+						ng-if="signUpCtrl.signUpForm.mail.$invalid && signUpCtrl.signUpForm.mail.$touched">
+						Email Must Be A Valid Email: Ex.: mail@mail
+					</small>
+			</div>
+
+			<div class="form-group">
+				<label for="phone">Phone Number:</label>
+				<input type="text"
+					id="phone"
+					name="phone"
+					class="form-control"
+					placeholder="Your Phone Number" 
+					ng-model="signUpCtrl.clientInfo.phone"
+					required
+					pattern="(\d{3})-(\d{3})-(\d{4})">
+
+					<small class="text-muted pull-right error-txt"
+						ng-if="signUpCtrl.signUpForm.phone.$invalid && signUpCtrl.signUpForm.phone.$touched">
+						Phone Number Must Be A Valid Number: Ex.: ###-###-####
+					</small>
+			</div>
+
+			<div class="form-group">
+				<label for="favorite">Favorite Dish:</label>
+				<input type="text"
+					id="favorite"
+					name="favorite"
+					class="form-control"
+					placeholder="Your Favorite Dish" 
+					ng-model="signUpCtrl.clientInfo.favorite"
+					ng-class="{'ng-invalid': signUpCtrl.dishNumberInvalid}">
+
+					<small class="text-muted pull-right error-txt"
+						ng-if="signUpCtrl.dishNumberInvalid">
+						No Such Menu Number Exists
+					</small>
+			</div>
+
+			<div class="form-group">
+				<button type="submit"
+					class="btn btn-lg btn-warning"
+					ng-disabled="signUpCtrl.signUpForm.$invalid || signUpCtrl.isSubmitting">
+					{{ signUpCtrl.isSubmitting ? 'Submitting...' : 'Submit'}}
+				</button>
+			</div>
+
+		</form>
+
+	</div>
+</div>

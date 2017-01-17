@@ -15,10 +15,12 @@ function routeConfig ($stateProvider) {
       absract: true,
       templateUrl: 'src/public/public.html'
     })
+
     .state('public.home', {
       url: '/',
       templateUrl: 'src/public/home/home.html'
     })
+
     .state('public.menu', {
       url: '/menu',
       templateUrl: 'src/public/menu/menu.html',
@@ -30,6 +32,7 @@ function routeConfig ($stateProvider) {
         }]
       }
     })
+
     .state('public.menuitems', {
       url: '/menu/{category}',
       templateUrl: 'src/public/menu-items/menu-items.html',
@@ -40,6 +43,35 @@ function routeConfig ($stateProvider) {
           return MenuService.getMenuItems($stateParams.category);
         }]
       }
+    })
+
+    .state('public.signup', {
+      url:'/signup',
+      templateUrl: 'src/public/sign-up/sign-up.html',
+      controller: 'SignUpController',
+      controllerAs: 'signUpCtrl'
+    })
+
+    .state('public.userinfo', {
+      url:'/myinfo',
+      templateUrl: 'src/public/user-info/user-info.html',
+      controller: 'UserInfoController',
+      controllerAs: 'userInfoCtrl',
+      resolve: {
+        userInfo: ['UserInfoService', 'MenuService', function(UserInfoService, MenuService){
+          var info = UserInfoService.getUserInfo();
+
+          if(info){
+            MenuService.getMenuItem(info.favorite)
+              .success(function(data){
+                info.favorite = data;
+              });
+          }
+          
+          return info;
+        }]
+      }
     });
+
 }
 })();
